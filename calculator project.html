@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater Level 1 project</title>
+</head>
+<style>
+    #cal {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        top: 0px;
+       
+        justify-content: center;
+    
+    
+    }
+
+    * {
+        margin: 5px;
+        padding: 15px;
+        font-family: "Helvetica Neue", sans-serif;
+        box-sizing: content-box;
+    }
+
+    body {
+        background-color: #a2c79b;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        background: #06192e;
+        padding: 40px;
+        width: 400px;
+        height: 600PX;
+        border-radius: 70px;
+        box-shadow: rgba(2, 6, 9, 0.2) 0px 20px 30px;
+    }
+
+    input[type="text"] {
+        width: 90%;
+        height: 30px;
+        font-size: 24px;
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: #f7f7f7;
+    }
+
+    input[type="button"] {
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1c80ab;
+        color: #f8f3f3;
+        cursor: pointer;
+    }
+
+    input[type="button"]:hover {
+        background-color: #e33318;
+    }
+</style>
+
+<body>
+    <h1 id="cal">Calculator</h1>
+    <div class="container">
+        <input type="text" id="user-input" value="0">
+        <table>
+            <tr>
+                <td><input type="button" value="7" onclick="display('7')"></td>
+                <td><input type="button" value="8" onclick="display('8')"></td>
+                <td><input type="button" value="9" onclick="display('9')"></td>
+                <td><input type="button" value="/" onclick="display('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="display('4')"></td>
+                <td><input type="button" value="5" onclick="display('5')"></td>
+                <td><input type="button" value="6" onclick="display('6')"></td>
+                <td><input type="button" value="*" onclick="display('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="display('1')"></td>
+                <td><input type="button" value="2" onclick="display('2')"></td>
+                <td><input type="button" value="3" onclick="display('3')"></td>
+                <td><input type="button" value="-" onclick="display('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="display('0')"></td>
+                <td><input type="button" value="." onclick="display('.')"></td>
+                <td><input type="button" value="=" onclick="calculate()"></td>
+                <td><input type="button" value="+" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="AC" onclick="clearInput()"></td>
+                <td id="backspace" colspan="2"><input type="button" value="⌫" onclick="clearInput()"></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const inputValue = document.getElementById("user-input");
+
+        function display(value) {
+            if (inputValue.value === "0") {
+                inputValue.value = value;
+            } else {
+                inputValue.value += value;
+            }
+        }
+
+        function calculate() {
+            inputValue.value = eval(inputValue.value);
+        }
+
+        function clearInput() {
+            inputValue.value = "0";
+        }
+    </script>
+</body>
+
+</html>
